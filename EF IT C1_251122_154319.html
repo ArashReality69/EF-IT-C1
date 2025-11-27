@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Support Fundamentals - Bilingual Course Overview</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Fonts: Inter (English) & Vazirmatn (Farsi) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =================================================================== */
+        /* --- GLOBAL STYLES --- */
+        /* =================================================================== */
+        :root {
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --primary-blue: #2563eb;
+            --primary-dark: #1e40af;
+            --accent-yellow: #facc15;
+            --accent-green: #22c55e;
+            --accent-red: #ef4444;
+            --accent-purple: #a855f7;
+            --border-color: #bfdbfe;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+
+        /* Language Specific Classes */
+        .lang-en {
+            font-family: 'Inter', sans-serif;
+            direction: ltr;
+            text-align: left;
+        }
+        
+        .lang-fa {
+            font-family: 'Vazirmatn', sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* Main Container */
+        .poster-container {
+            max-width: 1600px;
+            margin: 2rem auto;
+            background-color: var(--bg-card);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.1);
+            border: 4px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        /* Bilingual Split Layout (Grid) */
+        .bilingual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            position: relative;
+        }
+        
+        /* Divider line for bilingual grids */
+        .bilingual-grid::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 50%;
+            width: 1px;
+            background-color: #e5e7eb;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 1024px) {
+            .bilingual-grid {
+                grid-template-columns: 1fr;
+            }
+            .bilingual-grid::after {
+                display: none;
+            }
+        }
+
+        /* Section Styling */
+        .section-header {
+            text-align: center;
+            margin: 4rem 0 2rem 0;
+            position: relative;
+        }
+        
+        .section-title-en {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            display: block;
+        }
+        
+        .section-title-fa {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* Card Styling */
+        .info-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-blue);
+        }
+
+        .card-accent-blue { border-top: 4px solid var(--primary-blue); }
+        .card-accent-green { border-top: 4px solid var(--accent-green); }
+        .card-accent-yellow { border-top: 4px solid var(--accent-yellow); }
+        .card-accent-purple { border-top: 4px solid var(--accent-purple); }
+        .card-accent-red { border-top: 4px solid var(--accent-red); }
+
+        /* Floating Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-blue);
+            color: white;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: scale(1.1);
+            background: var(--primary-dark);
+        }
+
+        /* Print Optimization */
+        @media print {
+            .print-btn { display: none; }
+            body { background: white; }
+            .poster-container { margin: 0; border: none; box-shadow: none; }
+            .bilingual-grid { page-break-inside: avoid; }
+        }
+
+        /* --- VISUALIZATIONS CSS --- */
+        /* Binary Visual */
+        .binary-row span {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            line-height: 2rem;
+            text-align: center;
+            margin: 2px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: white;
+        }
+        .bit-on { background-color: var(--primary-blue); }
+        .bit-off { background-color: #94a3b8; }
+
+        /* Stack Layers */
+        .stack-layer {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            box-shadow: inset 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Timeline */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary-blue);
+            transform: translateX(-50%);
+        }
+        .timeline-row {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .timeline-content-en {
+            flex: 1;
+            padding-right: 2rem;
+            text-align: right;
+        }
+        .timeline-content-fa {
+            flex: 1;
+            padding-left: 2rem;
+            text-align: right; /* Farsi alignment */
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            transform: translate(-50%, 5px);
+            z-index: 10;
+        }
+
+        /* Motherboard Grid */
+        .mobo-grid {
+            display: grid;
+            grid-template-areas: 
+                "ram cpu"
+                "main main"
+                "io pcie";
+            gap: 10px;
+            background: #4c1d95;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .mobo-part {
+            background: #6d28d9;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 6px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        /* Utility Text Classes */
+        .text-highlight { color: var(--primary-blue); font-weight: 700; }
+        .text-success { color: var(--accent-green); font-weight: 700; }
+        .text-warning { color: #d97706; font-weight: 700; }
+        .text-danger { color: var(--accent-red); font-weight: 700; }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Print Button -->
+    <button class="print-btn" onclick="window.print()" title="Save as PDF / Print">
+        <i class="fas fa-print"></i>
+    </button>
+
+    <main class="poster-container p-4 md:p-8">
+
+        <!-- =================================================================== -->
+        <!-- === HEADER === -->
+        <!-- =================================================================== -->
+        <header class="text-center p-8 md:p-12 bg-gradient-to-b from-blue-50 to-white border-b-4 border-blue-200 relative">
+             <!-- Sticker Badge -->
+             <div class="hidden md:block absolute top-4 right-8 rotate-12">
+                <div class="bg-yellow-400 text-gray-900 font-black p-6 rounded-full shadow-lg flex flex-col items-center justify-center w-32 h-32 border-4 border-white">
+                    <span class="text-xs">CERTIFIED</span>
+                    <span class="text-xl">IT PRO</span>
+                    <span class="text-xs lang-fa">متخصص</span>
+                </div>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-black text-blue-800 mb-2 lang-en">The Complete IT Fundamentals</h1>
+            <h1 class="text-3xl md:text-5xl font-black text-blue-900 mb-6 lang-fa">اصول کامل فناوری اطلاعات (IT Fundamentals)</h1>
+            
+            <div class="max-w-4xl mx-auto bg-blue-50 rounded-xl p-6 border border-blue-100 flex flex-col md:flex-row gap-4 items-center justify-center">
+                <p class="lang-en text-lg text-gray-700 flex-1">
+                    A Single-Page Guide to <strong>Hardware</strong>, <strong>OS</strong>, <strong>Networking</strong>, <strong>Software</strong>, and Troubleshooting.
+                </p>
+                <div class="h-px w-full md:h-12 md:w-px bg-blue-200"></div>
+                <p class="lang-fa text-lg text-gray-700 flex-1">
+                    راهنمای یک صفحه‌ای برای آشنایی با <strong>Hardware</strong>، <strong>OS</strong>، <strong>Networking</strong>، <strong>Software</strong> و عیب‌یابی.
+                </p>
+            </div>
+        </header>
+
+        <!-- =================================================================== -->
+        <!-- === MODULE 1 === -->
+        <!-- =================================================================== -->
+        <section id="module-1">
+            <div class="section-header">
+                <span class="section-title-en">Module 1: Technical Support Fundamentals</span>
+                <span class="section-title-fa">ماژول ۱: اصول پشتیبانی فنی</span>
+            </div>
+
+            <!-- What is IT & Responsibilities -->
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <!-- Card: What is IT -->
+                <div class="info-card card-accent-blue">
+                    <div class="text-center mb-4 text-6xl">💾 ➡️ 🌐 ➡️ 📊</div>
+                    <div class="bilingual-grid">
+                        <div class="lang-en border-r md:border-r-0 pr-2">
+                            <h3 class="text-xl font-bold mb-2 text-blue-700">What is IT?</h3>
+                            <p>Using <strong class="text-highlight">digital technology</strong> to store and process data into <strong class="text-success">useful information</strong>.</p>
+                            <p class="mt-2 italic">Aim: Helping people use tech effectively!</p>
+                        </div>
+                        <div class="lang-fa pl-2">
+                            <h3 class="text-xl font-bold mb-2 text-blue-800">IT چیست؟</h3>
+                            <p>استفاده از <strong class="text-highlight">فناوری دیجیتال</strong> برای ذخیره و پردازش داده‌ها به <strong class="text-success">اطلاعات مفید</strong>.</p>
+                            <p class="mt-2 italic">هدف: کمک به افراد برای استفاده مؤثر از فناوری!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Core Responsibilities -->
+                <div class="info-card card-accent-blue bg-blue-600 text-white">
+                    <div class="bilingual-grid">
+                        <div class="lang-en">
+                            <h3 class="text-xl font-bold mb-3 text-white border-b border-blue-400 pb-2">Core Responsibilities</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>🔧 Manage, install, maintain, & configure systems.</li>
+                                <li>🎧 Provide entry-level support (Help Desk).</li>
+                                <li>🗣️ Use <strong class="text-yellow-300">communication skills</strong> to assist users.</li>
+                            </ul>
+                        </div>
+                        <div class="lang-fa">
+                            <h3 class="text-xl font-bold mb-3 text-white border-b border-blue-400 pb-2">مسئولیت‌های اصلی</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li>🔧 مدیریت، نصب، نگهداری و پیکربندی سیستم‌ها.</li>
+                                <li>🎧 ارائه پشتیبانی سطح ابتدایی (Help Desk).</li>
+                                <li>🗣️ استفاده از <strong class="text-yellow-300">مهارت‌های ارتباطی</strong> برای کمک به کاربران.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Divide -->
+            <div class="info-card card-accent-green bg-green-50 mb-8">
+                <div class="bilingual-grid items-center">
+                    <div class="lang-en">
+                        <h3 class="text-lg font-bold text-green-700">🌉 Bridging the Digital Divide</h3>
+                        <p>IT Specialists help bridge the gap by empowering others with <strong>digital literacy</strong>. Access is crucial!</p>
+                    </div>
+                    <div class="lang-fa">
+                        <h3 class="text-lg font-bold text-green-800">🌉 پل زدن بر شکاف دیجیتال</h3>
+                        <p>متخصصان IT با توانمندسازی دیگران از طریق <strong>سواد دیجیتال</strong>، به پر کردن این شکاف کمک می‌کنند. دسترسی حیاتی است!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Timeline -->
+            <div class="mb-12">
+                <h3 class="text-center text-2xl font-bold text-gray-400 mb-8">🏛️ History / تاریخچه</h3>
+                <div class="timeline-container">
+                    <div class="timeline-line hidden md:block"></div>
+                    
+                    <!-- Item 1 -->
+                    <div class="timeline-row flex-col md:flex-row">
+                        <div class="timeline-content-en lang-en mb-4 md:mb-0">
+                            <h4 class="text-orange-600 font-bold">Early Tools (500 BC - 1800s)</h4>
+                            <p><strong>Abacus:</strong> 🧮 First computing tool.</p>
+                            <p><strong>Jacquard's Loom:</strong> Punch cards for weaving.</p>
+                        </div>
+                        <div class="timeline-dot hidden md:block"></div>
+                        <div class="timeline-content-fa lang-fa">
+                            <h4 class="text-orange-700 font-bold">ابزارهای اولیه (۵۰۰ پ.م. - قرن ۱۹)</h4>
+                            <p><strong>چرتکه (Abacus):</strong> 🧮 اولین ابزار محاسباتی.</p>
+                            <p><strong>ماشین بافندگی ژاکارد:</strong> کارت‌های پانچ برای بافندگی.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="timeline-row flex-col md:flex-row">
+                        <div class="timeline-content-en lang-en mb-4 md:mb-0">
+                            <h4 class="text-orange-600 font-bold">The Babbage Era</h4>
+                            <p><strong>Charles Babbage:</strong> Difference & Analytical Engines.</p>
+                        </div>
+                        <div class="timeline-dot hidden md:block"></div>
+                        <div class="timeline-content-fa lang-fa">
+                            <h4 class="text-orange-700 font-bold">عصر Babbage</h4>
+                            <p><strong>Charles Babbage:</strong> موتورهای تفاضلی و تحلیلی را طراحی کرد.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="timeline-row flex-col md:flex-row">
+                        <div class="timeline-content-en lang-en mb-4 md:mb-0">
+                            <h4 class="text-orange-600 font-bold">Pioneers 👩‍🔬</h4>
+                            <p><strong>Ada Lovelace:</strong> 1st Algorithm. <strong>Turing:</strong> Machine concept. <strong>Grace Hopper:</strong> COBOL.</p>
+                        </div>
+                        <div class="timeline-dot hidden md:block"></div>
+                        <div class="timeline-content-fa lang-fa">
+                            <h4 class="text-orange-700 font-bold">پیشگامان 👩‍🔬</h4>
+                            <p><strong>Ada Lovelace:</strong> اولین الگوریتم. <strong>Turing:</strong> مفهوم ماشین. <strong>Grace Hopper:</strong> زبان COBOL.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Binary & Layers -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Binary -->
+                <div class="info-card card-accent-purple text-center">
+                    <h3 class="text-xl font-bold text-purple-700 mb-2">BINARY / باینری</h3>
+                    <div class="binary-row mb-4 flex justify-center">
+                        <span class="bit-on">1</span><span class="bit-off">0</span><span class="bit-off">0</span><span class="bit-on">1</span><span class="bit-off">0</span><span class="bit-on">1</span><span class="bit-on">1</span><span class="bit-off">0</span>
+                    </div>
+                    <div class="bilingual-grid">
+                        <div class="lang-en">
+                            <p class="mb-2">Computers speak in <strong>On (1)</strong> and <strong>Off (0)</strong>.</p>
+                            <ul class="text-sm text-left bg-gray-100 p-2 rounded">
+                                <li><strong>BIT:</strong> Single 1 or 0</li>
+                                <li><strong>BYTE:</strong> 8 bits = 1 char</li>
+                            </ul>
+                        </div>
+                        <div class="lang-fa">
+                            <p class="mb-2">کامپیوترها به زبان <strong>روشن (1)</strong> و <strong>خاموش (0)</strong> صحبت می‌کنند.</p>
+                            <ul class="text-sm text-right bg-gray-100 p-2 rounded">
+                                <li><strong>BIT:</strong> یک ۰ یا ۱ تکی</li>
+                                <li><strong>BYTE:</strong> ۸ بیت = ۱ کاراکتر</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstraction Layers -->
+                <div class="info-card card-accent-red text-center">
+                    <h3 class="text-xl font-bold text-red-600 mb-2">Abstraction / انتزاع</h3>
+                    <p class="text-sm text-gray-500 mb-4">Hiding Complexity / پنهان کردن پیچیدگی</p>
+                    <div class="max-w-xs mx-auto">
+                        <div class="stack-layer bg-red-500">
+                            <div class="flex justify-between text-sm"><span>User 🧑‍💻</span><span>کاربر</span></div>
+                        </div>
+                        <div class="stack-layer bg-green-500">
+                            <div class="flex justify-between text-sm"><span>Software 🖱️</span><span>نرم افزار</span></div>
+                        </div>
+                        <div class="stack-layer bg-yellow-500 text-black">
+                            <div class="flex justify-between text-sm"><span>OS 🖥️</span><span>سیستم عامل</span></div>
+                        </div>
+                        <div class="stack-layer bg-blue-600">
+                            <div class="flex justify-between text-sm"><span>Hardware ⌨️</span><span>سخت افزار</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- === MODULE 2 === -->
+        <!-- =================================================================== -->
+        <section id="module-2" class="mt-12">
+            <div class="section-header">
+                <span class="section-title-en">Module 2: Computer Hardware</span>
+                <span class="section-title-fa">ماژول ۲: سخت افزار کامپیوتر</span>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- CPU -->
+                <div class="info-card card-accent-blue col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4 border-b pb-2">
+                        <span class="text-3xl">🧠</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-800 lang-en">1. CPU (The Brain)</h3>
+                            <h3 class="text-lg font-bold text-blue-600 lang-fa">۱. پردازنده (مغز)</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="bilingual-grid">
+                        <div class="lang-en">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li><strong>Function:</strong> Calculates binary data.</li>
+                                <li><strong>32-bit vs 64-bit:</strong> 64-bit handles WAY more RAM.</li>
+                                <li><strong class="text-danger">Overclocking:</strong> Faster than specs (Risky!).</li>
+                                <li>Needs: Socket, Thermal Paste, Heat Sink.</li>
+                            </ul>
+                            <div class="mt-4 bg-gray-100 p-2 rounded text-center">
+                                <strong class="text-yellow-600 block mb-1">Cache (Fast Memory)</strong>
+                                <div class="flex justify-center gap-1 text-xs text-white">
+                                    <span class="bg-red-500 p-1 rounded">L1 (Fast)</span>
+                                    <span class="bg-yellow-500 p-1 rounded">L2</span>
+                                    <span class="bg-blue-500 p-1 rounded">L3 (Slow)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lang-fa">
+                            <ul class="list-disc pr-4 space-y-1">
+                                <li><strong>عملکرد:</strong> محاسبه داده‌های باینری.</li>
+                                <li><strong>۳۲ بیت در مقابل ۶۴ بیت:</strong> ۶۴ بیت رم بسیار بیشتری مدیریت می‌کند.</li>
+                                <li><strong class="text-danger">Overclocking:</strong> سرعت فراتر از حد مجاز (خطرناک!).</li>
+                                <li>نیازها: سوکت، خمیر حرارتی، هیت‌سینک.</li>
+                            </ul>
+                            <div class="mt-4 bg-gray-100 p-2 rounded text-center">
+                                <strong class="text-yellow-600 block mb-1">Cache (حافظه سریع)</strong>
+                                <div class="flex justify-center gap-1 text-xs text-white">
+                                    <span class="bg-red-500 p-1 rounded">L1 (سریع)</span>
+                                    <span class="bg-yellow-500 p-1 rounded">L2</span>
+                                    <span class="bg-blue-500 p-1 rounded">L3 (کند)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RAM -->
+                <div class="info-card card-accent-green bg-green-50">
+                    <div class="text-center mb-4">
+                        <span class="text-3xl">⚡</span>
+                        <h3 class="text-xl font-bold text-green-700">RAM / رم</h3>
+                        <p class="text-xs text-green-600">Short Term Memory / حافظه کوتاه‌مدت</p>
+                    </div>
+                    <div class="bilingual-grid">
+                        <div class="lang-en text-sm">
+                            <p class="mb-2"><strong class="text-red-500">VOLATILE:</strong> Data lost when power off.</p>
+                            <p><strong>Evolution:</strong> DRAM → SDRAM → DDR (1,2,3,4).</p>
+                        </div>
+                        <div class="lang-fa text-sm">
+                            <p class="mb-2"><strong class="text-red-500">فرار (Volatile):</strong> حذف داده با قطع برق.</p>
+                            <p><strong>تکامل:</strong> DRAM → SDRAM → DDR.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motherboard -->
+                <div class="info-card card-accent-purple col-span-1 md:col-span-3 bg-gray-50">
+                    <h3 class="text-center text-2xl font-bold text-purple-800 mb-4">3. Motherboard 🕸️ (The Spine / ستون فقرات)</h3>
+                    <div class="flex flex-col md:flex-row gap-6 items-center">
+                        <!-- Diagram -->
+                        <div class="mobo-grid w-full md:w-1/3 flex-shrink-0">
+                            <div class="mobo-part" style="grid-area:ram">RAM</div>
+                            <div class="mobo-part" style="grid-area:cpu">CPU</div>
+                            <div class="mobo-part bg-purple-800 text-xl font-bold py-8" style="grid-area:main">CHIPSET</div>
+                            <div class="mobo-part" style="grid-area:io">I/O</div>
+                            <div class="mobo-part" style="grid-area:pcie">PCIe</div>
+                        </div>
+                        
+                        <!-- Text -->
+                        <div class="bilingual-grid w-full">
+                            <div class="lang-en">
+                                <p class="mb-2">Connects ALL components and routes power.</p>
+                                <ul class="list-disc pl-4">
+                                    <li><strong>Form Factors:</strong> ATX (Standard), ITX (Small).</li>
+                                    <li><strong>Expansion Slots:</strong> PCIe (for GPU 🎮).</li>
+                                </ul>
+                            </div>
+                            <div class="lang-fa">
+                                <p class="mb-2">تمام قطعات را متصل کرده و برق را هدایت می‌کند.</p>
+                                <ul class="list-disc pr-4">
+                                    <li><strong>Form Factors:</strong> اندازه و طرح‌بندی (ATX استاندارد).</li>
+                                    <li><strong>اسلات‌های توسعه:</strong> PCIe (برای کارت گرافیک 🎮).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Storage & PSU -->
+                <div class="grid md:grid-cols-2 gap-6 col-span-1 md:col-span-3">
+                     <!-- Storage -->
+                    <div class="info-card card-accent-blue">
+                         <h3 class="text-center font-bold text-lg mb-4 text-blue-700">4. Storage 💽 (حافظه بلند مدت)</h3>
+                         <div class="grid grid-cols-2 gap-2 text-center">
+                             <div class="border-2 border-red-200 p-2 rounded bg-red-50">
+                                 <div class="text-2xl">💿</div>
+                                 <strong class="text-red-600">HDD</strong>
+                                 <p class="text-xs">Spinning Platters</p>
+                                 <p class="text-xs lang-fa">صفحات چرخان</p>
+                                 <span class="text-xs font-bold bg-red-200 px-2 rounded mt-1 inline-block">Slow</span>
+                             </div>
+                             <div class="border-2 border-green-200 p-2 rounded bg-green-50">
+                                <div class="text-2xl">🚀</div>
+                                <strong class="text-green-600">SSD</strong>
+                                <p class="text-xs">Flash Memory</p>
+                                <p class="text-xs lang-fa">تراشه‌های فلش</p>
+                                <span class="text-xs font-bold bg-green-200 px-2 rounded mt-1 inline-block">Fast!</span>
+                            </div>
+                         </div>
+                         <div class="text-center mt-3 text-sm text-gray-600">
+                             Interfaces: <strong>SATA</strong> vs <strong>NVMe</strong> (Super Fast)
+                         </div>
+                    </div>
+
+                    <!-- PSU -->
+                    <div class="info-card card-accent-yellow bg-yellow-50">
+                        <h3 class="text-center font-bold text-lg mb-2 text-yellow-700">5. PSU (Power Supply) ⚡</h3>
+                        <div class="flex justify-center items-center gap-2 font-mono font-bold text-lg mb-4 text-yellow-800">
+                            <span>AC 🔌</span> <span>→</span> <span class="border-2 border-yellow-500 px-2 rounded">PSU</span> <span>→</span> <span>DC 🖥️</span>
+                        </div>
+                        <div class="bilingual-grid text-sm">
+                            <div class="lang-en">
+                                <ul>
+                                    <li><strong>Voltage (V):</strong> Pressure</li>
+                                    <li><strong>Current (A):</strong> Flow</li>
+                                    <li><strong>Wattage (W):</strong> Total Power</li>
+                                </ul>
+                            </div>
+                            <div class="lang-fa">
+                                <ul>
+                                    <li><strong>ولتاژ (V):</strong> فشار</li>
+                                    <li><strong>جریان (A):</strong> جریان</li>
+                                    <li><strong>توان (W):</strong> قدرت کل (V × A)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile & Startup -->
+                <div class="info-card col-span-1 md:col-span-3 bg-gray-800 text-white">
+                    <div class="bilingual-grid">
+                        <div class="lang-en">
+                            <h3 class="text-yellow-400 font-bold mb-2">📱 Mobile Devices & SoC</h3>
+                            <p class="text-sm mb-2">Components combined into a <strong>System on a Chip (SoC)</strong>. Not user-replaceable.</p>
+                            <p class="text-sm"><strong>Displays:</strong> LCD (Backlight) vs OLED (Self-lit).</p>
+                            
+                            <h3 class="text-green-400 font-bold mt-4 mb-2">🚀 Startup Process</h3>
+                            <p class="font-mono text-sm">Power → BIOS/UEFI → POST (Check) → OS Load</p>
+                        </div>
+                        <div class="lang-fa border-l md:border-l-0 md:border-r border-gray-600 pr-4">
+                            <h3 class="text-yellow-400 font-bold mb-2">📱 دستگاه‌های موبایل و SoC</h3>
+                            <p class="text-sm mb-2">اجزا در یک تراشه <strong>(SoC)</strong> ترکیب شده‌اند. غیر قابل تعویض توسط کاربر.</p>
+                            <p class="text-sm"><strong>نمایشگرها:</strong> LCD (نور پس‌زمینه) در مقابل OLED (خودتابش).</p>
+                            
+                            <h3 class="text-green-400 font-bold mt-4 mb-2">🚀 فرآیند راه‌اندازی</h3>
+                            <p class="font-mono text-sm" dir="ltr">Power → BIOS/UEFI → POST (Check) → OS Load</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- === MODULE 3 === -->
+        <!-- =================================================================== -->
+        <section id="module-3" class="mt-12">
+            <div class="section-header">
+                <span class="section-title-en">Module 3: Operating Systems</span>
+                <span class="section-title-fa">ماژول ۳: سیستم عامل‌ها</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <!-- OS Structure Diagram -->
+                <div class="info-card card-accent-purple text-center">
+                    <h3 class="font-bold text-purple-700 mb-4">OS Structure / ساختار سیستم عامل</h3>
+                    <div class="bg-blue-100 p-3 rounded mb-2 border-2 border-blue-300">
+                        <strong class="block text-blue-800">User Space 🧑‍💻 فضای کاربر</strong>
+                        <span class="text-xs">Apps, Windows, You / برنامه‌ها، پنجره‌ها، شما</span>
+                    </div>
+                    <div class="text-2xl my-1">↕️</div>
+                    <div class="bg-purple-100 p-3 rounded mb-2 border-2 border-purple-300">
+                        <strong class="block text-purple-800">KERNEL 🧠 هسته</strong>
+                        <span class="text-xs">Resource Manager / مدیر منابع</span>
+                    </div>
+                    <div class="text-2xl my-1">⬇️</div>
+                    <div class="bg-gray-200 p-2 rounded text-gray-600 font-mono text-sm">
+                        HARDWARE / سخت افزار
+                    </div>
+                </div>
+
+                <!-- Logs & IO -->
+                <div class="info-card card-accent-yellow bg-yellow-50 flex flex-col justify-center">
+                    <div class="bilingual-grid">
+                        <div class="lang-en">
+                            <h3 class="font-bold text-yellow-800 mb-2">📝 Read Logs!</h3>
+                            <p class="text-sm">Logs record events and <strong>errors</strong>. Essential for troubleshooting.</p>
+                            <h3 class="font-bold text-yellow-800 mt-4 mb-2">⌨️ I/O & Drivers</h3>
+                            <p class="text-sm"><strong>Drivers</strong> act as translators between OS and devices.</p>
+                        </div>
+                        <div class="lang-fa">
+                            <h3 class="font-bold text-yellow-800 mb-2">📝 خواندن لاگ‌ها!</h3>
+                            <p class="text-sm">لاگ‌ها وقایع و <strong>خطاها</strong> را ثبت می‌کنند. برای عیب‌یابی حیاتی هستند.</p>
+                            <h3 class="font-bold text-yellow-800 mt-4 mb-2">⌨️ ورودی/خروجی و درایورها</h3>
+                            <p class="text-sm"><strong>درایورها</strong> به عنوان مترجم بین OS و دستگاه‌ها عمل می‌کنند.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kernel Functions Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="bg-red-600 text-white p-4 rounded-lg">
+                    <div class="text-center font-bold border-b border-white/30 pb-2 mb-2">
+                        <div class="lang-en">Process Mgmt</div>
+                        <div class="lang-fa text-sm">مدیریت فرآیند</div>
+                    </div>
+                    <p class="text-xs text-center"><strong class="text-yellow-300">Time Slicing:</strong> Gives illusion of multitasking.<br>ایجاد توهم چندوظیفه‌ای.</p>
+                </div>
+                <div class="bg-blue-600 text-white p-4 rounded-lg">
+                    <div class="text-center font-bold border-b border-white/30 pb-2 mb-2">
+                        <div class="lang-en">Memory Mgmt</div>
+                        <div class="lang-fa text-sm">مدیریت حافظه</div>
+                    </div>
+                    <p class="text-xs text-center"><strong class="text-yellow-300">Virtual Memory:</strong> Uses HDD as fake RAM (Pages).<br>استفاده از هارد به عنوان رم مجازی.</p>
+                </div>
+                <div class="bg-green-600 text-white p-4 rounded-lg">
+                    <div class="text-center font-bold border-b border-white/30 pb-2 mb-2">
+                        <div class="lang-en">File System</div>
+                        <div class="lang-fa text-sm">سیستم فایل</div>
+                    </div>
+                    <p class="text-xs text-center">NTFS / EXT4<br>Organizes data in <strong>Blocks</strong> & Metadata.<br>سازماندهی داده‌ها در بلوک‌ها.</p>
+                </div>
+                <div class="bg-yellow-600 text-white p-4 rounded-lg">
+                    <div class="text-center font-bold border-b border-white/30 pb-2 mb-2">
+                        <div class="lang-en">I/O Mgmt</div>
+                        <div class="lang-fa text-sm">مدیریت ورودی/خروجی</div>
+                    </div>
+                    <p class="text-xs text-center">Communicates with devices via <strong>Drivers</strong>.<br>ارتباط با دستگاه‌ها از طریق درایورها.</p>
+                </div>
+            </div>
+
+            <!-- GUI vs CLI -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="info-card border-2 border-gray-200">
+                    <h3 class="text-center font-bold text-blue-600 mb-2">GUI 🖱️ (Visual / بصری)</h3>
+                    <div class="bg-gray-100 p-4 rounded h-24 flex items-center justify-center border border-gray-300">
+                        <div class="bg-white p-2 shadow rounded flex gap-2">
+                            <div class="w-4 h-4 rounded-full bg-red-400"></div>
+                            <div class="w-4 h-4 rounded-full bg-yellow-400"></div>
+                            <div class="w-4 h-4 rounded-full bg-green-400"></div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-center mt-2 text-gray-500">Click icons & windows / کلیک روی آیکون‌ها</p>
+                </div>
+                <div class="info-card border-2 border-gray-800 bg-gray-900 text-green-400">
+                    <h3 class="text-center font-bold text-green-500 mb-2">CLI ⌨️ (Text / متنی)</h3>
+                    <div class="font-mono text-xs p-2">
+                        <p><span class="text-blue-400">$</span> echo "Hello World"</p>
+                        <p>Hello World</p>
+                        <p><span class="text-blue-400">$</span> _</p>
+                    </div>
+                    <p class="text-xs text-center mt-2 text-gray-500">Powerful Shell Commands / دستورات قدرتمند شل</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- === MODULE 4 === -->
+        <!-- =================================================================== -->
+        <section id="module-4" class="mt-12">
+            <div class="section-header">
+                <span class="section-title-en">Module 4: The Internet & Networking</span>
+                <span class="section-title-fa">ماژول ۴: اینترنت و شبکه</span>
+            </div>
+
+            <!-- Internet vs Web -->
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="info-card bg-blue-600 text-white text-center">
+                    <div class="text-5xl mb-2">🌍</div>
+                    <div class="bilingual-grid">
+                        <div class="lang-en border-r border-blue-400">
+                            <h3 class="font-bold text-lg">The Internet</h3>
+                            <p class="text-sm">Physical Infrastructure (Cables, Routers). The "Hardware".</p>
+                        </div>
+                        <div class="lang-fa pl-2">
+                            <h3 class="font-bold text-lg">اینترنت</h3>
+                            <p class="text-sm">زیرساخت فیزیکی (کابل‌ها، روترها). "سخت‌افزار".</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card bg-purple-600 text-white text-center">
+                    <div class="text-5xl mb-2">🕸️</div>
+                    <div class="bilingual-grid">
+                        <div class="lang-en border-r border-purple-400">
+                            <h3 class="font-bold text-lg">The Web</h3>
+                            <p class="text-sm">Information (Websites). Accessed <em>via</em> the Internet.</p>
+                        </div>
+                        <div class="lang-fa pl-2">
+                            <h3 class="font-bold text-lg">وب</h3>
+                            <p class="text-sm">اطلاعات (وب‌سایت‌ها). دسترسی <em>از طریق</em> اینترنت.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Packets -->
+            <div class="info-card card-accent-yellow bg-gray-50 mb-8 text-center">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">📦 Data Packets / بسته‌های داده</h3>
+                <div class="inline-block bg-white border-2 border-dashed border-gray-400 p-6 rounded-lg">
+                    <div class="grid md:grid-cols-2 gap-8 text-left">
+                        <div>
+                            <strong class="text-green-600 block">IP Address 🏠</strong>
+                            <span class="text-xs text-gray-600">"Home Address". Unique to device on network.</span>
+                            <p class="text-xs text-gray-500 lang-fa mt-1">"آدرس خانه". منحصر به فرد در شبکه.</p>
+                        </div>
+                        <div>
+                            <strong class="text-blue-600 block">MAC Address 🧑</strong>
+                            <span class="text-xs text-gray-600">"Name". Unique hardware ID.</span>
+                            <p class="text-xs text-gray-500 lang-fa mt-1">"نام شخص". شناسه سخت‌افزاری یکتا.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hardware & Protocols -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Hardware -->
+                <div class="info-card">
+                    <h3 class="text-center font-bold text-blue-700 mb-4">Hardware / سخت افزار</h3>
+                    <ul class="space-y-3">
+                        <li class="bg-blue-100 p-2 rounded">
+                            <strong class="text-blue-800">🚦 Router:</strong> Connects networks. Routes traffic.
+                            <p class="text-xs text-blue-600 lang-fa mt-1">شبکه‌ها را متصل و ترافیک را هدایت می‌کند.</p>
+                        </li>
+                        <li class="bg-green-100 p-2 rounded">
+                            <strong class="text-green-800">📬 Switch:</strong> Directs to SPECIFIC device.
+                            <p class="text-xs text-green-600 lang-fa mt-1">هدایت به دستگاهی خاص در شبکه.</p>
+                        </li>
+                        <li class="bg-red-100 p-2 rounded">
+                            <strong class="text-red-800">📢 Hub:</strong> Broadcasts to ALL (Old).
+                            <p class="text-xs text-red-600 lang-fa mt-1">پخش اطلاعات برای همه (قدیمی).</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Protocols -->
+                <div class="info-card">
+                    <h3 class="text-center font-bold text-purple-700 mb-4">Protocols / پروتکل‌ها</h3>
+                    
+                    <div class="mb-4 border-b pb-2">
+                        <strong class="text-gray-800">TCP/IP Model</strong>
+                        <div class="bilingual-grid mt-2 text-sm">
+                            <div class="lang-en">
+                                <p><span class="text-green-600 font-bold">IP:</span> Gets to address.</p>
+                                <p><span class="text-blue-600 font-bold">TCP:</span> Reliable delivery (No errors).</p>
+                            </div>
+                            <div class="lang-fa">
+                                <p><span class="text-green-600 font-bold">IP:</span> رسیدن به آدرس.</p>
+                                <p><span class="text-blue-600 font-bold">TCP:</span> تحویل مطمئن (بدون خطا).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <strong class="text-gray-800">DNS 📖 Phonebook</strong>
+                        <div class="text-center font-mono text-xs bg-gray-100 p-2 rounded mt-2">
+                            google.com ⬇️ 172.217.14.228
+                        </div>
+                        <p class="text-xs text-center mt-1 text-gray-500 lang-fa">تبدیل نام به IP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- === MODULE 5 === -->
+        <!-- =================================================================== -->
+        <section id="module-5" class="mt-12">
+            <div class="section-header">
+                <span class="section-title-en">Module 5: Software</span>
+                <span class="section-title-fa">ماژول ۵: نرم افزار</span>
+            </div>
+
+            <!-- How Built -->
+            <div class="grid md:grid-cols-3 gap-4 mb-8 text-center">
+                <div class="bg-white p-4 rounded shadow border border-blue-200">
+                    <h4 class="font-bold text-blue-700">Coding 🗣️</h4>
+                    <p class="text-xs">Translating human language to machine.</p>
+                    <p class="text-xs lang-fa text-gray-500 mt-1">ترجمه زبان انسان به ماشین.</p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded shadow border border-blue-300">
+                    <h4 class="font-bold text-blue-800">Scripting 🤖</h4>
+                    <p class="text-xs">Automating specific tasks.</p>
+                    <p class="text-xs lang-fa text-gray-500 mt-1">خودکارسازی وظایف خاص.</p>
+                </div>
+                <div class="bg-purple-50 p-4 rounded shadow border border-purple-300">
+                    <h4 class="font-bold text-purple-800">Programming 🧑‍💻</h4>
+                    <p class="text-xs">Building complex apps.</p>
+                    <p class="text-xs lang-fa text-gray-500 mt-1">ساخت برنامه‌های پیچیده.</p>
+                </div>
+            </div>
+
+            <!-- Types & Stack -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Licensing -->
+                <div class="info-card card-accent-red">
+                    <h3 class="text-center font-bold text-gray-800 mb-3">Licensing / مجوزها</h3>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div>
+                            <div class="text-3xl">💰</div>
+                            <strong class="text-sm">Commercial</strong>
+                            <p class="text-xs text-gray-500">Pay to use (Copyright).</p>
+                        </div>
+                        <div>
+                            <div class="text-3xl">🤝</div>
+                            <strong class="text-sm">Open Source</strong>
+                            <p class="text-xs text-gray-500">Free to modify/share.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Stack -->
+                <div class="info-card card-accent-blue">
+                    <h3 class="text-center font-bold text-gray-800 mb-3">Software Stack</h3>
+                    <div class="space-y-2 max-w-xs mx-auto text-center text-white text-sm">
+                        <div class="bg-blue-600 p-2 rounded">
+                            Application 📝 <span class="lang-fa text-xs opacity-90">(Browser/Word)</span>
+                        </div>
+                        <div class="bg-purple-700 p-2 rounded">
+                            System SW ⚙️ <span class="lang-fa text-xs opacity-90">(The OS)</span>
+                        </div>
+                        <div class="bg-gray-500 p-2 rounded">
+                            Firmware 💾 <span class="lang-fa text-xs opacity-90">(BIOS)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Management -->
+            <div class="info-card bg-green-50 mt-6">
+                <div class="bilingual-grid">
+                    <div class="lang-en">
+                        <h3 class="font-bold text-green-800 mb-2">Best Practices</h3>
+                        <ul class="text-sm space-y-2">
+                            <li>🛡️ <strong>Update Often:</strong> Security fixes.</li>
+                            <li>🧪 <strong>Test First:</strong> Avoid compatibility issues.</li>
+                            <li>🔒 <strong>Admin Approval:</strong> Prevent bad installs.</li>
+                        </ul>
+                    </div>
+                    <div class="lang-fa">
+                        <h3 class="font-bold text-green-800 mb-2">بهترین شیوه‌ها</h3>
+                        <ul class="text-sm space-y-2">
+                            <li>🛡️ <strong>بروزرسانی مداوم:</strong> رفع مشکلات امنیتی.</li>
+                            <li>🧪 <strong>تست اولیه:</strong> جلوگیری از مشکلات سازگاری.</li>
+                            <li>🔒 <strong>تایید مدیر:</strong> جلوگیری از نصب‌های مضر.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- === MODULE 6 === -->
+        <!-- =================================================================== -->
+        <section id="module-6" class="mt-12 mb-12">
+            <div class="section-header">
+                <span class="section-title-en">Module 6: Troubleshooting & Soft Skills</span>
+                <span class="section-title-fa">ماژول ۶: عیب‌یابی و مهارت‌های نرم</span>
+            </div>
+
+            <!-- Troubleshooting Steps -->
+            <div class="mb-8">
+                <h3 class="text-center font-bold text-xl mb-6 text-gray-700">Methodology / متدولوژی</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="border-2 border-blue-400 rounded p-3 text-center bg-white">
+                        <div class="text-2xl">❓</div>
+                        <strong class="block text-sm">1. Ask Questions</strong>
+                        <span class="text-xs lang-fa block mt-1 text-gray-500">۱. سوال بپرسید</span>
+                    </div>
+                    <div class="border-2 border-green-400 rounded p-3 text-center bg-white">
+                        <div class="text-2xl">🎯</div>
+                        <strong class="block text-sm">2. Isolate Problem</strong>
+                        <span class="text-xs lang-fa block mt-1 text-gray-500">۲. ایزوله کردن مشکل</span>
+                    </div>
+                    <div class="border-2 border-yellow-400 rounded p-3 text-center bg-white">
+                        <div class="text-2xl">🍪</div>
+                        <strong class="block text-sm">3. Follow Crumbs</strong>
+                        <span class="text-xs lang-fa block mt-1 text-gray-500">۳. دنبال کردن سرنخ‌ها</span>
+                    </div>
+                    <div class="border-2 border-purple-400 rounded p-3 text-center bg-white">
+                        <div class="text-2xl">⚡</div>
+                        <strong class="block text-sm">4. Simple First</strong>
+                        <span class="text-xs lang-fa block mt-1 text-gray-500">۴. ابتدا راه‌حل ساده</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="info-card bg-blue-600 text-white">
+                    <h3 class="text-center font-bold text-lg mb-4">Soft Skills / مهارت‌های نرم</h3>
+                    <div class="bilingual-grid text-sm">
+                        <div class="lang-en">
+                            <p>👋 <strong>Greeting:</strong> Professional start.</p>
+                            <p>👂 <strong>Active Listening:</strong> Understand user.</p>
+                            <p>❤️ <strong>Empathy:</strong> Care about their stress.</p>
+                        </div>
+                        <div class="lang-fa">
+                            <p>👋 <strong>احوالپرسی:</strong> شروع حرفه‌ای.</p>
+                            <p>👂 <strong>گوش دادن فعال:</strong> درک کاربر.</p>
+                            <p>❤️ <strong>همدلی:</strong> اهمیت دادن به استرس آنها.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card bg-yellow-400 text-gray-900">
+                    <h3 class="text-center font-bold text-lg mb-4">Difficult Situations / شرایط دشوار</h3>
+                    <div class="text-center bg-yellow-500 p-4 rounded font-bold">
+                        <span class="text-2xl block mb-2">🧘</span>
+                        <p class="lang-en">Breathe. Pause. Acknowledge.</p>
+                        <p class="lang-fa mt-1">نفس بکشید. مکث کنید. تایید کنید.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documentation -->
+            <div class="info-card border-2 border-gray-300 mt-6">
+                <div class="bilingual-grid">
+                    <div class="lang-en">
+                        <h3 class="font-bold text-gray-800">📝 Documentation</h3>
+                        <p class="text-sm mb-2">Write clear, detailed steps. Avoid "It's broken".</p>
+                        <h4 class="font-bold text-purple-700 mt-4">The Interview</h4>
+                        <p class="text-sm">Think aloud! Explain your steps. Prioritize issues.</p>
+                    </div>
+                    <div class="lang-fa">
+                        <h3 class="font-bold text-gray-800">📝 مستندسازی</h3>
+                        <p class="text-sm mb-2">مراحل واضح و دقیق بنویسید. از "خراب است" بپرهیزید.</p>
+                        <h4 class="font-bold text-purple-700 mt-4">مصاحبه</h4>
+                        <p class="text-sm">با صدای بلند فکر کنید! مراحل را توضیح دهید. اولویت‌بندی کنید.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- === CONCLUSION === -->
+        <!-- =================================================================== -->
+        <footer class="bg-gradient-to-r from-green-500 to-blue-500 text-white p-10 rounded-xl text-center shadow-2xl">
+            <h2 class="text-3xl md:text-5xl font-black mb-4">🎉 Course Complete! / پایان دوره</h2>
+            <div class="text-6xl mb-6">🧠 💡</div>
+            
+            <div class="max-w-3xl mx-auto bg-black bg-opacity-20 p-6 rounded-lg">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-yellow-300 lang-en">Embrace a Growth Mindset!</h3>
+                    <p class="text-lg lang-en mt-2">Success comes from a willingness to learn, challenge assumptions, and adapt.</p>
+                </div>
+                <div class="border-t border-white/30 pt-4">
+                    <h3 class="text-xl font-bold text-yellow-300 lang-fa">ذهنیت رشد را بپذیرید!</h3>
+                    <p class="text-lg lang-fa mt-2">موفقیت از تمایل به یادگیری، به چالش کشیدن پیش‌فرض‌ها و سازگاری حاصل می‌شود.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
